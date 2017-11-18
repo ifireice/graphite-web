@@ -155,11 +155,12 @@ def fetchData(requestContext, pathExpr, timer=None):
   (startTime, endTime, now) = timebounds(requestContext)
 
   prefetched = requestContext.get('prefetched', {}).get((startTime, endTime, now), {}).get(pathExpr)
+  print("prefetched1: {}".format(prefetched))
   if not prefetched:
     prefetched = []
     for prefetched_values in requestContext.get('prefetched', {}).get((startTime, endTime, now), {}).values():
       prefetched.extend(prefetched_values)
-
+  print("prefetched2: {}".format(prefetched))
   if not prefetched:
     return []
 
