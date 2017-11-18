@@ -364,7 +364,7 @@ class DatalibFunctionTest(TestCase):
       self.assertEqual(results, expectedResults)
 
     def test_fetchData_wildcard(self):
-      pathExpr = 'collectd.test-db.*'
+      pathExpr = 'collectd.test-db.load.value'
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
       requestContext = self._build_requestContext(startTime, endTime)
