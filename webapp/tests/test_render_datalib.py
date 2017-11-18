@@ -363,6 +363,19 @@ class DatalibFunctionTest(TestCase):
       expectedResults = []
       self.assertEqual(results, expectedResults)
 
+    def test_fetchData_wildcard(self):
+      pathExpr = 'collectd.test-db.*.value'
+      startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
+      endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
+      requestContext = self._build_requestContext(startTime, endTime)
+      requestContext['now'] = endTime
+      requestContext['forwardHeaders'] = None
+      results = fetchData(requestContext, pathExpr)
+      expectedResults = []
+      print(results)
+
+      self.assertEqual(results, expectedResults)
+
     def test_prefetchData(self):
       # STORE.finders has no non-local finders
       results = prefetchData({}, [])
