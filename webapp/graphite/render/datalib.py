@@ -154,9 +154,11 @@ def fetchData(requestContext, pathExpr, timer=None):
   seriesList = {}
   (startTime, endTime, now) = timebounds(requestContext)
 
-  prefetched = []
-  for prefetched_values in requestContext.get('prefetched', {}).get((startTime, endTime, now), {}).values():
-    prefetched.extend(prefetched_values)
+  prefetched = requestContext.get('prefetched', {}).get((startTime, endTime, now), {}).get(pathExpr)
+  if not prefetched:
+    prefetched = []
+    for prefetched_values in requestContext.get('prefetched', {}).get((startTime, endTime, now), {}).values():
+      prefetched.extend(prefetched_values)
 
   if not prefetched:
     return []
