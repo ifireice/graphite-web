@@ -372,7 +372,7 @@ class DatalibFunctionTest(TestCase):
       requestContext['forwardHeaders'] = None
       results = fetchData(requestContext, pathExpr)
       expectedResults = []
-      print(results)
+      print("result_fetchdata: {}".format(results))
 
       self.assertEqual(results, expectedResults)
 
