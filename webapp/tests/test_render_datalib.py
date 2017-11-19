@@ -367,6 +367,8 @@ class DatalibFunctionTest(TestCase):
       pathExpr = 'collectd.test-db.*.value'
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
+      startTime = datetime(2016, 6, 16, 15, 55, 38)
+      endTime = datetime(2016, 6, 17, 15, 55, 38)
       requestContext = self._build_requestContext(startTime, endTime)
       requestContext['now'] = endTime
       print ("requestContext: {}".format(requestContext))
