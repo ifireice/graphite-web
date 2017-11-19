@@ -369,7 +369,7 @@ class DatalibFunctionTest(TestCase):
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
       requestContext = self._build_requestContext(startTime, endTime)
       requestContext['now'] = endTime
-      requestContext['forwardHeaders'] = None
+
       results = fetchData(requestContext, pathExpr)
       expectedResults = []
       print("result_fetchdata: {}".format(results))
