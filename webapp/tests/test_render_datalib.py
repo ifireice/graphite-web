@@ -331,7 +331,7 @@ class DatalibFunctionTest(TestCase):
       ]
       self.assertEqual(results, expectedResults)
 
-    def test__merge_results_no_remote_store_merge_results(self):
+    def test__merge_results_no_remote_store_merge_results(sel      requestContext['forwardHeaders'] = Nonef):
       pathExpr = 'collectd.test-db.load.value'
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
@@ -339,7 +339,7 @@ class DatalibFunctionTest(TestCase):
       result_queue = [
                       [pathExpr, [timeInfo, [0,1,2,3,4,None,None,None,None,None]]],
                       [pathExpr, [timeInfo, [None,None,None,3,4,5,6,7,8,9]]],
-                      [pathExpr, [timeInfo, [None,None,None,None,None,None,None,7,8,9]]]
+                      [pathExpr, [timeInfo, [None,None,None,None,Non      requestContext['forwardHeaders'] = Nonee,None,None,7,8,9]]]
                      ]
 
       seriesList = {}
@@ -364,12 +364,12 @@ class DatalibFunctionTest(TestCase):
       self.assertEqual(results, expectedResults)
 
     def test_fetchData_wildcard(self):
-      pathExpr = 'collectd.test.load.load.*'
+      pathExpr = 'collectd.test-db.*.value'
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
       requestContext = self._build_requestContext(startTime, endTime)
       requestContext['now'] = endTime
-
+      print ("requestContext: {}".format(requestContext))
       results = fetchData(requestContext, pathExpr)
       expectedResults = []
       print("result_fetchdata: {}".format(results))
