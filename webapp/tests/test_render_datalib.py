@@ -368,13 +368,12 @@ class DatalibFunctionTest(TestCase):
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
       requestContext = self._build_requestContext(startTime, endTime)
-      #requestContext['now'] = endTime
+      requestContext['now'] = endTime
       print ("requestContext: {}".format(requestContext))
       results = fetchData(requestContext, pathExpr)
       expectedResults = []
       print("result_fetchdata: {}".format(results))
       print("expr: {}".format(pathExpr))
-
       self.assertEqual(results, expectedResults)
 
 
