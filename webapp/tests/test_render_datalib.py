@@ -339,7 +339,7 @@ class DatalibFunctionTest(TestCase):
       result_queue = [
                       [pathExpr, [timeInfo, [0,1,2,3,4,None,None,None,None,None]]],
                       [pathExpr, [timeInfo, [None,None,None,3,4,5,6,7,8,9]]],
-                      [pathExpr, [timeInfo, [None,None,None,None,Non      requestContext['forwardHeaders'] = Nonee,None,None,7,8,9]]]
+                      [pathExpr, [timeInfo, [None,None,None,None,None,None,None,7,8,9]]]
                      ]
 
       seriesList = {}
@@ -376,7 +376,6 @@ class DatalibFunctionTest(TestCase):
       print("expr: {}".format(pathExpr))
 
       self.assertEqual(results, expectedResults)
-
 
 
     def test_prefetchData(self):
