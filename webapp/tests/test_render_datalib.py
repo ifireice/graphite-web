@@ -331,7 +331,7 @@ class DatalibFunctionTest(TestCase):
       ]
       self.assertEqual(results, expectedResults)
 
-    def test__merge_results_no_remote_store_merge_results(sel      requestContext['forwardHeaders'] = Nonef):
+    def test__merge_results_no_remote_store_merge_results(self):
       pathExpr = 'collectd.test-db.load.value'
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
@@ -368,7 +368,7 @@ class DatalibFunctionTest(TestCase):
       startTime=datetime(1970, 1, 1, 0, 10, 0, 0, pytz.timezone(settings.TIME_ZONE))
       endTime=datetime(1970, 1, 1, 0, 20, 0, 0, pytz.timezone(settings.TIME_ZONE))
       requestContext = self._build_requestContext(startTime, endTime)
-      requestContext['now'] = endTime
+      #requestContext['now'] = endTime
       print ("requestContext: {}".format(requestContext))
       results = fetchData(requestContext, pathExpr)
       expectedResults = []
